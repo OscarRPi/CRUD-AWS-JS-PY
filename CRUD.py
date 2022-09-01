@@ -1,3 +1,7 @@
+'''
+Esta aplicacion recorre las funcionalidades basicas de un CRUD mediante una interfaz sencilla en consola
+'''
+
 #------> Aplicación CRUD - Biblioteca
 
 from time import sleep
@@ -10,6 +14,9 @@ url = "https://m1axfeth4e.execute-api.us-east-1.amazonaws.com/items"
 
 # funciones
 
+# Esta funcion se usa para agregar un nuevo registro a la base de datos.
+# Se organizan los datos en formato json y luego se hace una peticion put para agregar los datos
+
 def create(libroNuevo): 
 
     data_json = json.dumps(libroNuevo)
@@ -20,6 +27,9 @@ def create(libroNuevo):
     print(" ")
     print(response.json())
     print(" ")
+
+# Esta funcion se usa para leer todos los registros en la base de datos
+# Se reciben los datos en formato json haciendo una peticion get
 
 def read_all():
 
@@ -42,6 +52,9 @@ def read_all():
             if (int(libros[i]['id']) == ids[j]):
                 print("{:<10} {:<25} {:<25} {:<25}".format(libros[i]['id'],libros[i]['title'], libros[i]['autor'],libros[i]['editorial']))
 
+# Esta funcion se usa para leer solo un registro en la base de datos
+# Se reciben los datos en formato json haciendo una peticion get
+
 def read(identificador):
 
     response = requests.get(url+"/"+str(identificador))
@@ -57,13 +70,19 @@ def read(identificador):
         print(" ")
         print("{:<10} {:<25} {:<25} {:<25}".format(libro[0]['id'],libro[0]['title'], libro[0]['autor'],libro[0]['editorial']))
 
-            
+# Esta funcion se usa para eliminar un registro de la base de datos
+# Se envia el identificador de la fila y se elimina este registro haciendo una peticion delete
+
 def delete(identificador):
 
     response = requests.delete(url+"/"+str(identificador))
     print(" ")
     print(response.json())
     print(" ")
+
+# Esta funcion se usa para determinar si un identificador se encuentra en la base de datos
+# Se lee la base de datos y se agrupan los ids recibidosen una lista. Si el identificador coincide con alguno de los ids
+# entonces se devuelve True, de lo contrario se devuelve False
 
 def iselement(identificador):
     
@@ -81,9 +100,13 @@ def iselement(identificador):
     else:
         return False
     
-###########
-#MENU
-##########
+# Esta funcion es la encargada de mostrar el menu principal al usuario
+# El usuario puede escoger entre 6 opciones para Crear/Actualizar/Leer todo/Leer un solo registro/Eliminar o salir
+
+# El id debe ser un numero entero
+# El titulo es de tipo string
+# El autor es de tipo string
+# La editorial es de tipo string
 
 def loop():
 

@@ -1,5 +1,8 @@
-const AWS = require("aws-sdk");
+/*
+Este codigo es el encargado de recibir todas las peticiones que hace el usuario y entabla comunicacion con los servicios de AWS
+*/
 
+const AWS = require("aws-sdk");
 const dynamo = new AWS.DynamoDB.DocumentClient();
 
 exports.handler = async (event, context) => {
