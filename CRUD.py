@@ -10,7 +10,7 @@ from os import system
 import requests
 import json
 
-url = "https://m1axfeth4e.execute-api.us-east-1.amazonaws.com/items"
+url = "https://d4m2qw0ss3.execute-api.us-east-1.amazonaws.com/items"
 
 # funciones
 
