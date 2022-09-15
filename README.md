@@ -6,7 +6,7 @@
 
 El link de los servicios de AWS API Gateway es:
 
-https://m1axfeth4e.execute-api.us-east-1.amazonaws.com
+https://d4m2qw0ss3.execute-api.us-east-1.amazonaws.com/items
 
 ## Estructura de archivos
 
